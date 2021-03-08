@@ -106,4 +106,4 @@ Once you're happy with everything and have committed all of the changes to your 
 
 ### Tips
 
-+ It's not required but you might find it interesting to open up the output file and look at the counties that have the largest and smallest percentages of their state's population. Eight counties have 40% or more of their state's population and 28 counties have less than 1%.
++ It's not required but you might find it interesting to open up the output file and look at the counties that have the largest and smallest percentages of their state's population. Eight counties have 40% or more of their state's population and 28 counties have less than 0.01%.
