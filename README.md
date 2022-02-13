@@ -1,22 +1,22 @@
 # Exercise: Joining Geographic and Census Data
 
-### Summary
+## Summary
 
 This exercise carries out a basic join, or merge, of two datasets: one extracted from a geographic information system (GIS) file giving some basic physical data on US counties, and the other obtained from the US Census and giving each county's population. It shows the internal details of joins that we'll use a lot during the GIS portion of the course later in the semester.
 
-### Input Data
+## Input Data
 
-The first input file is **county_geo.csv**. It has five fields: `STATEFP`, `COUNTYFP`, `GEOID`, `ALAND`, and `AWATER`. The first two, `STATEFP` and `COUNTYFP`, are the state FIPS code (2 digits) and the county FIPS code within the state (3 digits). The third, `GEOID`, is a 5-digit FIPS code that uniquely identifies the county within the US. It is a concatenated version of the first two fields. The last two variables are the areas of land and water in the county in square meters.
+The first input file is **county_geo.csv**. It has five fields: `STATEFP`, `COUNTYFP`, `GEOID`, `ALAND`, and `AWATER`. The first two, `STATEFP` and `COUNTYFP`, are the state FIPS code (2 digits) and the county FIPS code within the state (3 digits). The third, `GEOID`, is a 5-digit FIPS code that uniquely identifies the county within the US. It consists the state and county codes concatenated together. The last two variables are the areas of land and water in the county in square meters.
 
 The second input file is **county_pop.csv**. It has four fields: `NAME`, `B01001_001E`, `state`, `county`. The first is the name of the county, including its state. The second, `B01001_001E`, is the Census variable giving the total population of the county. The third and fourth fields give the FIPS codes for the state (2 digits) and the county within the state (3 digits).
 
-### Deliverables
+## Deliverables
 
 A script called **county_merge.py** that joins the population data onto the geographic data, calculates each county's percentage of its state's total population, and writes out the result as a new CSV file. Although it's not part of this assignment, the output file could be imported into GIS software for mapping.
 
-### Instructions
+## Instructions
 
-Please prepare a script called `county_merge.py` as described below. See the accompanying file `notation.pdf` for brief examples showing how some common instructions in this and other exercises should be translated into code.
+Please prepare a script called `county_merge.py` as described below. See the accompanying file `notation.pdf` for brief examples showing how some common instructions in this exercise should be translated into code.
 
 1. Import `csv`
 
@@ -100,10 +100,10 @@ Please prepare a script called `county_merge.py` as described below. See the acc
 
 1. Call `fh.close()`.
 
-### Submitting
+## Submitting
 
 Once you're happy with everything and have committed all of the changes to your local repository, please push the changes to GitHub. At that point, you're done: you have submitted your answer.
 
-### Tips
+## Tips
 
 + It's not required but you might find it interesting to open up the output file and look at the counties that have the largest and smallest percentages of their state's population. Eight counties have 40% or more of their state's population and 28 counties have less than 0.01%.
