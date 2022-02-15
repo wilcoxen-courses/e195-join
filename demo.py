@@ -47,18 +47,31 @@ print( json.dumps(pop_list[:n], indent=4) )
 
 #%%
 #
-#  Now build a dictionary of name information with FIPS codes as keys
+#  Now build a dictionary of name information with FIPS codes as keys.
+#  Check for duplicate keys along the way (will happen for 00).
 #
 
 name_by_fips = {}
 
 for rec in name_list:
     fips = rec['State']
-    if fips != '00':
+
+    if fips == "36":
+        print('\nFIPS 36 is:',rec,'\n')
+
+    if fips in name_by_fips:
+        print('Skipping record with duplicate code:', rec['State'],rec['Name'])
+    else:
         name_by_fips[ fips ] = rec
 
 print( '\nname_by_fips["36"]:' )
 print( json.dumps( name_by_fips["36"], indent=4 ) )
+
+#
+#  Now delete the 00 entry since it's not a state and we don't want it later.
+#
+
+del name_by_fips["00"]
 
 #%%
 #
@@ -85,6 +98,7 @@ print( json.dumps( pop_by_fips["36"], indent=4 ) )
 for fips in name_by_fips.keys():
 
     name_rec = name_by_fips[fips]
+
     pop_rec = pop_by_fips[fips]
 
     name_rec['pop'] = float(pop_rec['pop'])
