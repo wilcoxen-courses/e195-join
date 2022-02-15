@@ -56,9 +56,9 @@ Please prepare a script called `county_merge.py` as described below. See the acc
 
    1. Set the value of `this_geoid` in the new `pop_data` dictionary to `pop_rec`. This stores the full population record for this county in the dictionary under the county's unique geoid.
 
-1. Following the loop, join the population data onto the geographic data. To do that, use `geoid` to loop over the keys of `geo_data`. Within the loop do the following:
+1. Following the loop, join the population data onto the geographic data. That's done by going through each entry in `geo_data`, looking up the corresponding population record in `pop_data`, and then adding that information onto the record in `geo_data`. To do that, use `geoid` to loop over the keys of `geo_data`. Within the loop do the following:
 
-   1. Set `geo_rec` to the value of `geoid` in `geo_data`. That looks up the geographic data for the current value of `geoid`.
+   1. Set `geo_rec` to the value of `geoid` in the `geo_data` dictionary. That looks up the geographic data for the current value of `geoid`.
 
    1. Set `pop_rec` to the value of `geoid` in `pop_data`. That looks up the population data for the current value of `geoid`.
 
